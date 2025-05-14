@@ -13,7 +13,7 @@ class SafePlatformService {
     print('addToSession() called on non-web platform');
   }
 
-  Future<Map> fetchFromSession(BuildContext context) async {
+  Future<Map<String, dynamic>> fetchFromSession(BuildContext context) async {
     print('fetchFromSession() called on non-web platform');
     return {};
   }
@@ -23,6 +23,11 @@ class SafePlatformService {
     String? url,
   ) async {
     print('openAuthWindow() called on non-web platform');
+    // Do nothing on mobile
+  }
+
+  Future clearSession(BuildContext context) async {
+    print('clearSession() called on non-web platform');
     // Do nothing on mobile
   }
 }

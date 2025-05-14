@@ -27,7 +27,7 @@ class SafePlatformService {
     }
   }
 
-  Future<Map> fetchFromSession(BuildContext context) async {
+  Future<Map<String, dynamic>> fetchFromSession(BuildContext context) async {
     try {
       return {
         "firstName": html.window.localStorage["firstName"],
@@ -47,5 +47,12 @@ class SafePlatformService {
   ) async {
     // Open a 600x600 window
     return html.window.open(url!, 'authWindow', 'width=600,height=600');
+  }
+
+  Future clearSession(BuildContext context) async {
+    html.window.localStorage.remove("firstName");
+    html.window.localStorage.remove("lastName");
+    html.window.localStorage.remove("displayName");
+    html.window.localStorage.remove("email");
   }
 }

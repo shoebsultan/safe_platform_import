@@ -37,7 +37,7 @@ void main() {
         home: Builder(
           builder: (context) {
             return Scaffold(
-              body: FutureBuilder<Map>(
+              body: FutureBuilder<Map<String, dynamic>>(
                 future: service.fetchFromSession(context),
                 builder: (context, snapshot) {
                   return const Text('Done');
@@ -73,5 +73,25 @@ void main() {
 
       // Add your assertions here
     });
+  });
+
+  testWidgets('clearSession', (tester) async {
+    late BuildContext testContext;
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Builder(
+          builder: (context) {
+            testContext = context;
+            return const Scaffold(body: Text('Test'));
+          },
+        ),
+      ),
+    );
+
+    final service = SafePlatformService();
+    await service.clearSession(testContext);
+
+    // Add your assertions here
   });
 }
