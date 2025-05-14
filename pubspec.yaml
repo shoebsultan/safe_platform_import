@@ -1,7 +1,7 @@
 name: safe_platform_import
 description: A Dart-only plugin to safely import platform-specific code (like dart:html) in Flutter projects.
 version: 0.0.1
-homepage: https://example.com
+homepage: https://github.com/shoebsultan/safe_platform_import
 
 environment:
   sdk: ">=2.17.0 <4.0.0"
