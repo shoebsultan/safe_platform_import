@@ -14,4 +14,4 @@ Add `safe_platform_import` as a dependency in your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  safe_platform_import: ^0.0.1
+  safe_platform_import: ^0.0.2
