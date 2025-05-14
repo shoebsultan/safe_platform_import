@@ -1,5 +1,6 @@
 import 'dart:html' as html;
 import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class SafePlatformService {
@@ -18,9 +19,11 @@ class SafePlatformService {
         html.window.localStorage["displayName"] = authUser.displayName ?? "";
         html.window.localStorage["email"] = authUser.email ?? "";
 
-        print("FIRST NAME : ${html.window.localStorage["firstName"]}");
-        print("LAST NAME : ${html.window.localStorage["lastName"]}");
-        print("DISPLAY NAME : ${html.window.localStorage["displayName"]}");
+        if (kDebugMode) {
+          print("FIRST NAME : ${html.window.localStorage["firstName"]}");
+          print("LAST NAME : ${html.window.localStorage["lastName"]}");
+          print("DISPLAY NAME : ${html.window.localStorage["displayName"]}");
+        }
       }
     } catch (e) {
       rethrow;
